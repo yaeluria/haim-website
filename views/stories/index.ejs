@@ -1,0 +1,39 @@
+<% include ../partials/header %> 
+
+<div class="container">
+     <header class="jumbotron">
+      <div class="container">
+        <h1>חברים מספרים על חיים</h1>
+        <p class="lead">סיפורים וזכרונות מחיים</p>
+        <p>
+          <a class="btn btn-primary btn-large" href="/stories/new">לשיתוף טקסט</a>
+        </p>
+      </div>
+    </header>
+
+    <div class="row text-center">
+    <% stories.forEach(function(story){ %>
+      <div class="col-md-3 col-sm-6">
+
+      <div class="card mt-3">
+         <small class="card-header">מאת: <%= story.author %></small>
+           <div class="card-body">
+           <div class="thumbnail">
+           <img src="<%= story.image %>" >
+           </div>
+           <p class="card-text"> <%= story.storyText %></p>
+           <a href="/stories/<%= story._id %>" class="btn btn-primary">לקריאה</a>
+      
+        </div>
+      </div>
+   
+  
+  
+    
+    </div>
+
+  <% }); %>
+ </div>
+</div>
+
+<% include ../partials/footer %>

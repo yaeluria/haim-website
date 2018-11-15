@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>YelpCamp</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/stylesheets/main.css">
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>לזכרו של חיים טוקצ׳ינסקי</title>
+       <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.0.0/css/bootstrap.min.css" integrity="sha384-P4uhUIGk/q1gaD/NdgkBIl3a6QywJjlsFJFk7SPRdruoGddvRVSwv5qFnvZ73cpz" crossorigin="anonymous">
+        <link rel='stylesheet' type='text/css' href='/stylesheets/main.css' />
+  <link href="https://fonts.googleapis.com/css?family=Heebo:400,700&amp;subset=hebrew" rel="stylesheet">
+
     </head>
     <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">YelpCamp</a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <% if(!currentUser){ %>
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Sign Up</a></li>
-                    <% } else { %>
-                        <li><a href="#">Signed In As <%= currentUser.username %></a></li>
-                        <li><a href="/logout">Logout</a></li>
-                    <% } %>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="container">
-        
-        <% if(error && error.length > 0){ %>
-            <div class="alert alert-danger" role="alert">
-                <%= error %>
-            </div>
-        <% } %>
-        <% if(success && success.length > 0){ %>
-            <div class="alert alert-success" role="alert">
-                <%= success %>
-            </div>
-        <% } %>
-    </div>
-    
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active ml-2">
+        <a class="nav-link" href="#">ראשי <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ml-2">
+        <a class="nav-link" href="/about">על חיים</a>
+      </li>
+      <li class="nav-item ml-2">
+        <a class="nav-link" href="/stories">מלים לזכרו</a>
+      </li>
+
+       <li class="nav-item ml-2">
+        <a class="nav-link" href="/music">סרטונים והקלטות</a>
+      </li>
+
+      <li class="nav-item ml-2">
+        <a class="nav-link" href="/images">תמונות וציורים</a>
+      </li>
+       <li class="nav-item ml-2">
+        <a class="nav-link" href="/events">אירועים</a>
+      </li>   
+       <li class="nav-item ml-2">
+        <a class="nav-link" href="#">מעזבונותיו</a>
+      </li>   
+
+    </ul>
+  </div>
+</nav>
+
+   

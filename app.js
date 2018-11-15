@@ -6,20 +6,21 @@ var mongoose    = require("mongoose"),
     passport    = require("passport"),
     LocalStrategy = require("passport-local"),
    methodOverride= require("method-override"),
-
-   Campground  = require("./models/campground"),
+   path          = require("path"),
+   Story = require("./models/story"),
     Comment     = require("./models/comment"),
     User        = require("./models/user")
-    seedDB      = require("./seeds")
+    //seedDB      = require("./seeds")
     port        = process.env.PORT || 3000;  
 //requring routes
 var commentRoutes    = require("./routes/comments"),
-    campgroundRoutes = require("./routes/campgrounds"),
+    storiesRoutes = require("./routes/stories"),
     indexRoutes      = require("./routes/index")
+   
+    
 
 
-
-mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/yelp_camp");
+mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/haim_app");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -52,8 +53,9 @@ app.use(function(req, res, next){
 });
 
 app.use("/", indexRoutes);
-app.use("/campgrounds", campgroundRoutes);
-app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/stories", storiesRoutes);
+app.use("/", commentRoutes);
+
 
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))

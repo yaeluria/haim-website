@@ -1,12 +1,14 @@
 var express = require("express");
 var router  = express.Router();
 var Story = require("../models/story");
-var middleware = require("../middleware");
+
+//var middleware = require("../middleware");
 
 
 //INDEX - show all stories
 router.get("/", function(req, res){
-    // Get all stories from DB
+    
+    //Get all stories from DB
     Story.find({}, function(err, allStories){
        if(err){
            console.log(err);
@@ -17,7 +19,7 @@ router.get("/", function(req, res){
 });
 
 //CREATE - add new story to DB
-// router.post("/", middleware.isLoggedIn, function(req, res){
+router.post("/", function(req, res){
     // get data from form and add to stories array
     var author = req.body.author;
     var image = req.body.image;
@@ -26,7 +28,7 @@ router.get("/", function(req, res){
     //     id: req.user._id,
     //     username: req.user.username
     // }
-    var newStory = {author: author, image: image, storyText: storyText}
+    var newStory = {author: author, image: image, storyText: storyText};
     // Create a new story and save to DB
     Story.create(newStory, function(err, newlyCreated){
         if(err){
@@ -39,8 +41,8 @@ router.get("/", function(req, res){
     });
 });
 
-//NEW - show form to create new campground
-router.get("/new", middleware.isLoggedIn, function(req, res){
+//NEW - show form to create new story
+router.get("/new", function(req, res){
    res.render("stories/new"); 
 });
 
@@ -52,16 +54,16 @@ router.get("/:id", function(req, res){
             console.log(err);
         } else {
             console.log(foundStory)
-            //render show template with that campground
-            res.render("stories/show", {campground: foundStory});
+            //render show template with that story
+            res.render("stories/show", {story: foundStory});
         }
     });
 });
 
 // // EDIT STORY ROUTE
 // router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res){
-//     Campground.findById(req.params.id, function(err, foundCampground){
-//         res.render("stories/edit", {campground: foundCampground});
+//     Campground.findById(req.params.id, function(err, foundStory){
+//         res.render("stories/edit", {story: foundStory});
 //     });
 // });
 

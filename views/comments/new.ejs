@@ -1,17 +1,23 @@
 <% include ../partials/header %>
-<div class="container">
-    <div class="row">
-        <h1 style="text-align: center">Add New Comment to <%= campground.name %></h1>
-        <div style="width: 30%; margin: 25px auto;">
-            <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
+<div class="container mt-4">
+ 
+        <h1>הוסף תגובה</h1>
+       
+            <form action="/about" method="POST">
+
                 <div class="form-group">
-                    <input class="form-control" type="text" name="comment[text]" placeholder="text">
+                    <input class="form-control" type="text" name="comment[author]" placeholder="השם שלך">
+                </div>
+
+               
+               <div class="form-group">
+                    <textarea class="form-control" rows="12" type="text" name="comment[text]" placeholder="התגובה שלך"></textarea>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                    <button class="btn btn-lg btn-primary btn-block">שלח</button>
                 </div>
             </form>
-            <a href="/campgrounds">Go Back</a>
+            <a href="/about">Go Back</a>
         </div>
     </div>
 </div>
