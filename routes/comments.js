@@ -3,6 +3,19 @@ var router  = express.Router({mergeParams: true});
 var Story = require("../models/story");
 var Comment = require("../models/comment");
 
+
+// router.get("/about", function(req, res){
+//     // var comment = req.body.comment;
+
+// 	  Comment.find({}, function(err, allComments){
+//        if(err){
+//            console.log(err);
+//        } else {
+//        	console.log(allComments);
+//           res.render("about", {comments: allComments});
+//       }
+//        });
+//    });
 //comments new
  router.get("/about/newcomment", function(req,res){
   res.render("comments/new");
@@ -15,7 +28,7 @@ var Comment = require("../models/comment");
 
 //Comments Create
 router.post("/about",function(req, res){
-	   var comment = req.body.comment;
+	 //  var comment = req.body.comment;
   
         Comment.create(req.body.comment, function(err, comment){
            if(err){
@@ -30,7 +43,9 @@ router.post("/about",function(req, res){
               
                console.log(comment);
                //req.flash("success", "Successfully added comment");
-               res.redirect("/about", {comment: comment});
+               res.redirect("/about");
+               // res.redirect("/about", {comment: comment});
+
            }
        
        

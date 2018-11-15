@@ -11,17 +11,20 @@ router.get("/", function(req, res){
 });
 
 router.get("/about", function(req, res){
-     var comment = req.body.comment;
-  
-	  // Comment.find({}, function(err, allComments){
-   //     if(err){
-   //         console.log(err);
-   //     } else {
-   //     	console.log(allComments);
-          res.render("about",{comment:comment});
+    // var comment = req.body.comment;
+
+	  Comment.find.populate("comments").exec(,function(err, allComments){
+       if(err){
+           console.log(err);
+       } else {
+       	console.log(allComments);
+          res.render("about", {comments: allComments});
+        }
        });
-   // });
+   });
    //  });
+
+
   
 
 // show register form

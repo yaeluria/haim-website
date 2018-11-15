@@ -66,9 +66,11 @@
 	//comments section
 	 <div class="well">
                 <div class="text-right">
-                    <a class="btn btn-success" href="/about/comments/new">Add New Comment</a>
+                    <a class="btn btn-success" href="/about/newcomment">Add New Comment</a>
                 </div>
                 <hr>
+              
+                <% comments.forEach(function(comment){ %>
                 
                     <div class="row">
                         <div class="col-md-12">
@@ -80,7 +82,7 @@
                      
                         </div>
                     </div>
-               
+               <% }); %>
             </div>
         </div>
 
