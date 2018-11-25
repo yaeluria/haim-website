@@ -2,53 +2,49 @@ var express = require("express");
 var router  = express.Router({mergeParams: true});
 var Story = require("../models/story");
 var Comment = require("../models/comment");
+//var About = require("../models/about");
 
 
-// router.get("/about", function(req, res){
-//     // var comment = req.body.comment;
-
-// 	  Comment.find({}, function(err, allComments){
-//        if(err){
-//            console.log(err);
-//        } else {
-//        	console.log(allComments);
-//           res.render("about", {comments: allComments});
-//       }
-//        });
-//    });
-//comments new
- router.get("/about/newcomment", function(req,res){
-  res.render("comments/new");
-
- });
-
-
-
-
+router.get("/new", function(req, res){
+    // find story by id
+    console.log(req.params.id);
+    Story.findById(req.params.id, function(err, story){
+        if(err){
+            console.log(err);
+        } else {
+            console.log(story);
+             res.render("comments/new", {story: story});
+        }
+    })
+});
 
 //Comments Create
-router.post("/about",function(req, res){
-	 //  var comment = req.body.comment;
-  
-        Comment.create(req.body.comment, function(err, comment){
+router.post("/",function(req, res){
+   //lookup story using ID
+  Story.findById(req.params.id, function(err, story){
+       if(err){
+           console.log(err);
+           res.redirect("/stories");
+       } else {
+         var newComment = req.body.comment;
+        Comment.create(newComment, function(err, comment){
            if(err){
-               //req.flash("error", "Something went wrong");
+              // req.flash("error", "Something went wrong");
                console.log(err);
            } else {
-               
-               
+               //add username and id to comment
+               //comment.author.id = req.user._id;
+             //  comment.author.username = req.user.username;
                //save comment
                comment.save();
-               comments.push(comment);
-              
-               console.log(comment);
-               //req.flash("success", "Successfully added comment");
-               res.redirect("/about");
-               // res.redirect("/about", {comment: comment});
-
+               story.comments.push(comment);
+               story.save();
+               console.log(story);
+             //  req.flash("success", "Successfully added comment");
+               res.redirect('/stories/' + story._id);
            }
-       
-       
+        });
+       }
    });
 });
 
@@ -58,7 +54,7 @@ router.post("/about",function(req, res){
 //       if(err){
 //           res.redirect("back");
 //       } else {
-//         res.render("comments/edit", {campground_id: req.params.id, comment: foundComment});
+//         res.render("comments/edit", {story_id: req.params.id, comment: foundComment});
 //       }
 //    });
 // });

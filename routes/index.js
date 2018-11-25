@@ -1,8 +1,10 @@
 var express = require("express");
 var router  = express.Router();
-var passport = require("passport");
-var User = require("../models/user");
-var Comment = require("../models/comment");
+//var passport = require("passport");
+//var User = require("../models/user");
+// var Comment = require("../models/comment");
+//var About = require("../models/about");
+
 //var commentRoutes = require("./comments")
 
 //root route
@@ -10,21 +12,57 @@ router.get("/", function(req, res){
     res.render("landing");
 });
 
-router.get("/about", function(req, res){
+//router.get("/about", function(req, res){
     // var comment = req.body.comment;
 
-	  Comment.find.populate("comments").exec(,function(err, allComments){
-       if(err){
-           console.log(err);
-       } else {
-       	console.log(allComments);
-          res.render("about", {comments: allComments});
-        }
-       });
-   });
-   //  });
+	// About.findById.populate("comments").exec(function(err, allComments){
+ //       if(err){
+ //           console.log(err);
+ //       } else {
+ //       	console.log(allComments);
+ //          res.render("about", {comments: allComments});
+ //        }
+ //       });
+ //   });
+//    //  });
+
+// router.get("/about", function(req, res){
+//     // Get all stories from DB
+//    About.find({}, function(err, allComments){
+//        if(err){
+//            console.log(err);
+//        } else {
+//           res.render("about",{comments:allComments});
+//        }
+//     });
+// });
 
 
+// router.post("/about",function(req, res){
+//     //   var comment = req.body.comment;
+//     //   var newComment = {comment: comment}
+  
+//         Comment.create(req.body.comment, function(err, newComment){
+//            if(err){
+//                //req.flash("error", "Something went wrong");
+//                console.log(err);
+//            } else {
+               
+               
+//                //save comment
+//                //comment.save();
+//              //  comments.push(comment);
+              
+//                console.log(comment);
+//                //req.flash("success", "Successfully added comment");
+//               // res.redirect("/about");
+//                res.redirect("/about");
+//            }
+       
+       
+//    });
+//    console.log(req.body.comment);
+// });
   
 
 // show register form

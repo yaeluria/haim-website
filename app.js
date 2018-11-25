@@ -7,13 +7,13 @@ var mongoose    = require("mongoose"),
     LocalStrategy = require("passport-local"),
    methodOverride= require("method-override"),
    path          = require("path"),
-   Story = require("./models/story"),
+    Story = require("./models/story"),
     Comment     = require("./models/comment"),
-    User        = require("./models/user")
-    //seedDB      = require("./seeds")
+    //User        = require("./models/user")
+    seedDB      = require("./seeds"),
     port        = process.env.PORT || 3000;  
 //requring routes
-var commentRoutes    = require("./routes/comments"),
+var storyCommentRoutes    = require("./routes/comments"),
     storiesRoutes = require("./routes/stories"),
     indexRoutes      = require("./routes/index")
    
@@ -37,11 +37,11 @@ app.use(require("express-session")({
     saveUninitialized: false
 
 }));
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// app.use(passport.initialize());
+// app.use(passport.session());
+// passport.use(new LocalStrategy(User.authenticate()));
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
 
 
 // app.use(function(req, res, next){
@@ -54,7 +54,7 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use("/", indexRoutes);
 app.use("/stories", storiesRoutes);
-app.use("/", commentRoutes);
+app.use("/stories/:id/comments", storyCommentRoutes);
 
 
 

@@ -3,7 +3,7 @@
  
         <h1>הוסף תגובה</h1>
        
-            <form action="/about" method="POST">
+            <form action="/stories/<%= story._id %>/comments" method="POST">
 
                 <div class="form-group">
                     <input class="form-control" type="text" name="comment[author]" placeholder="השם שלך">

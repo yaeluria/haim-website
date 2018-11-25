@@ -35,7 +35,7 @@ router.post("/", function(req, res){
             console.log(err);
         } else {
             //redirect back to stories page
-            console.log(newlyCreated);
+           // console.log(newlyCreated);
             res.redirect("/stories");
         }
     });
@@ -49,11 +49,12 @@ router.get("/new", function(req, res){
 // SHOW - shows more info about one campground
 router.get("/:id", function(req, res){
     //find the story with provided ID
-    Story.findById(req.params.id).populate("comments").exec(function(err, foundStory){
-        if(err){
+    Story.findOne({ _id: req.params.id }).populate("comments").exec(function(err, foundStory){
+        if(err){ 
             console.log(err);
         } else {
-            console.log(foundStory)
+           console.log(foundStory.comments);
+
             //render show template with that story
             res.render("stories/show", {story: foundStory});
         }
