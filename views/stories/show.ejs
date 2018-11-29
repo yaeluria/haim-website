@@ -26,13 +26,14 @@
                 <div>
                 <p> here go the comments </p>
                 <% story.comments.forEach(function(comment){ %>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <strong><%= comment.author %></strong>
-                            <span class="pull-right">10 days ago</span>
+                    <!-- <div class="row">
+                        <div class="col-md-12"> -->
+                            <strong><%= comment.author%></strong>
+                            <span class="float-right">נובמבר 26, 2018 בשעה 5:49</span>
                             <p>
-                                <%= comment.text %> 
+                                <%= comment.text%> 
                             </p>
+                            <hr>
                     
                       
                     </div>

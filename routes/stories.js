@@ -49,10 +49,13 @@ router.get("/new", function(req, res){
 // SHOW - shows more info about one campground
 router.get("/:id", function(req, res){
     //find the story with provided ID
+    console.log("req.params.id");
+    console.log(req.params.id);
     Story.findOne({ _id: req.params.id }).populate("comments").exec(function(err, foundStory){
-        if(err){ 
-            console.log(err);
+        if(err){ ("this is the error");
+          console.log(err);
         } else {
+           console.log("this is the foundStory.comments");
            console.log(foundStory.comments);
 
             //render show template with that story

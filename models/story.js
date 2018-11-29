@@ -20,6 +20,7 @@ var storySchema = new mongoose.Schema({
          ref: "Comment"
       }
    ]
+   
 });
 
 module.exports = mongoose.model("Story", storySchema);

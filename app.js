@@ -3,24 +3,23 @@ var mongoose    = require("mongoose"),
     app         = express(),
     flash       = require("connect-flash"),
     bodyParser  = require("body-parser"),
-    passport    = require("passport"),
-    LocalStrategy = require("passport-local"),
-   methodOverride= require("method-override"),
-   path          = require("path"),
+  //  passport    = require("passport"),
+  //  LocalStrategy = require("passport-local"),
+    methodOverride= require("method-override"),
+    path          = require("path"),
     Story = require("./models/story"),
     Comment     = require("./models/comment"),
-    //User        = require("./models/user")
+    //User        = require("./models/user"),
     seedDB      = require("./seeds"),
     port        = process.env.PORT || 3000;  
 //requring routes
-var storyCommentRoutes    = require("./routes/comments"),
+var storyCommentRoutes    = require("./routes/storyComments"),
     storiesRoutes = require("./routes/stories"),
     indexRoutes      = require("./routes/index")
-   
+    aboutRoutes   = require("./routes/aboutRoutes")
     
-
-
-mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/haim_app");
+mongoose.Promise = require('bluebird');
+mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/haim_app", { useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -54,8 +53,8 @@ app.use(require("express-session")({
 
 app.use("/", indexRoutes);
 app.use("/stories", storiesRoutes);
-app.use("/stories/:id/comments", storyCommentRoutes);
-
+app.use("/stories/:id/storyComments", storyCommentRoutes);
+app.use("/about/", aboutRoutes);
 
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))

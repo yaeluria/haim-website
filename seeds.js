@@ -14,7 +14,7 @@ var data = [
        storyText: "מוסן מנת. להאמית קרהשק סכעיט דז מא, מנכם למטכין נשואי מנורך. קולורס מונפרד אדנדום סילקוף, מרגשי ומרגשח. עמחליף קונדימנטום קורוס בליקרה, נונסטי קלובר בריקנה סטום, לפריקך תצטריק לרטי. "
     },
     {
-        name: "Canyon Floor", 
+        name: "חנן", 
         image: "https://images.unsplash.com/photo-1479118013749-9f79d55a28d0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4b5e1eb5ba822dbe2dc8979e84f1d17a&auto=format&fit=crop&w=400&q=60",
       storyText: "מוסן מנת. להאמית קרהשק סכעיט דז מא, מנכם למטכין נשואי מנורך. קולורס מונפרד אדנדום סילקוף, מרגשי ומרגשח. עמחליף קונדימנטום קורוס בליקרה, נונסטי קלובר בריקנה סטום, לפריקך תצטריק לרטי. "
     }
@@ -43,8 +43,8 @@ function seedDB(){
                             if(err){
                                 console.log(err);
                             } else {
-                             story.comments.push(comment);
-                             story.save();
+                             Story.comments.push(comment);
+                             Story.save();
                                 console.log("Created new comment");
                             }
                         });
