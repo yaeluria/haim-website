@@ -13,7 +13,7 @@ var mongoose    = require("mongoose"),
     seedDB      = require("./seeds"),
     port        = process.env.PORT || 3000;  
 //requring routes
-var storyCommentRoutes    = require("./routes/storyComments"),
+var commentRoutes    = require("./routes/comments"),
     storiesRoutes = require("./routes/stories"),
     indexRoutes      = require("./routes/index")
     aboutRoutes   = require("./routes/aboutRoutes")
@@ -53,7 +53,7 @@ app.use(require("express-session")({
 
 app.use("/", indexRoutes);
 app.use("/stories", storiesRoutes);
-app.use("/stories/:id/storyComments", storyCommentRoutes);
+app.use("/stories/:id/comments/",commentRoutes);
 app.use("/about/", aboutRoutes);
 
 

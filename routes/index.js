@@ -5,7 +5,7 @@ var router  = express.Router();
 var Comment = require("../models/comment");
 //var About = require("../models/about");
 
-var commentRoutes = require("./storyComments")
+//var commentRoutes = require("./commentRoutes")
 
 //root route
 router.get("/", function(req, res){
