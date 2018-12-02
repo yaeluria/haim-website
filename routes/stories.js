@@ -1,6 +1,6 @@
 var express = require("express");
 var router  = express.Router();
-var Story = require("../models/story");
+var Memory = require("../models/memory");
 
 //var middleware = require("../middleware");
 
@@ -9,7 +9,7 @@ var Story = require("../models/story");
 router.get("/", function(req, res){
     
     //Get all stories from DB
-    Story.find({}, function(err, allStories){
+    Memory.find({category:"story"}, function(err, allStories){
        if(err){
            console.log(err);
        } else {
@@ -23,17 +23,20 @@ router.post("/", function(req, res){
     // get data from form and add to stories array
     var author = req.body.author;
     var image = req.body.image;
-    var storyText = req.body.storyText;
+    var content = req.body.content;
     // var author = {
     //     id: req.user._id,
     //     username: req.user.username
     // }
-    var newStory = {author: author, image: image, storyText: storyText};
+    let category = req.body.category;
+    var newStory = {author: author, image: image, content: content, category: "story"};
     // Create a new story and save to DB
-    Story.create(newStory, function(err, newlyCreated){
+   Memory.create(newStory, function(err, newlyCreated){
         if(err){
             console.log(err);
         } else {
+            console.log("newlyCreated");
+            console.log(newlyCreated);
             //redirect back to stories page
            // console.log(newlyCreated);
             res.redirect("/stories");
@@ -51,7 +54,7 @@ router.get("/:id", function(req, res){
     //find the story with provided ID
     console.log("req.params.id");
     console.log(req.params.id);
-    Story.findOne({ _id: req.params.id }).populate("comments").exec(function(err, foundStory){
+    Memory.findOne({ _id: req.params.id }).populate("comments").exec(function(err, foundStory){
         if(err){ ("this is the error");
           console.log(err);
         } else {
