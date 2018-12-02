@@ -1,4 +1,6 @@
 var express = require("express");
+var mongoose    = require("mongoose");
+
 var router  = express.Router({mergeParams: true});
 var Memory = require("../models/memory");
 var Comment = require("../models/comment");
@@ -35,8 +37,10 @@ router.post("/",function(req, res){
              console.log(comment);
             let commentId = comment._id;
           //  [your_mongodb_model].query({ _id: mongoose.Types.ObjectId(id) });
+          console.log("req.params.id");
+          console.log(req.params.id);
 
-            Memory.findById((mongoose.Types.ObjectId(req.params.id)), function(err, memory){
+            Memory.findById((mongoose.Types.ObjectId(req.params.id), function(err, memory){
                     if(err){
                            console.log(err);
                            res.redirect("/stories");
@@ -48,9 +52,10 @@ router.post("/",function(req, res){
                                 console.log(err);
                                }
                                else{
-                                switch(memory.category) {
-                                    case "story":
-                                        res.redirect("/stories/' + memory._id")
+                                  
+                               switch(memory.category) {
+                                    case story:
+                                        res.redirect(""/stories/" + (mongoose.Types.ObjectId(memory._id)")
                                         break;
                                     case image:
                                         res.redirect("/images/' + memory._id")
@@ -74,7 +79,7 @@ router.post("/",function(req, res){
 
            
 
-            })
+            }))
                   
                };
             

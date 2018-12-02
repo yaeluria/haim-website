@@ -1,11 +1,11 @@
 var mongoose = require("mongoose");
-
+var Comment = require
 var memorySchema = new mongoose.Schema({
   // name: String,
    image: String,
    content: String,
    author: String,
-   type: String,
+   category: String,
    // author: [
    //   {
    //       type: mongoose.Schema.Types.ObjectId,
