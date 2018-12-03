@@ -40,7 +40,7 @@ router.post("/",function(req, res){
           console.log("req.params.id");
           console.log(req.params.id);
 
-            Memory.findById((mongoose.Types.ObjectId(req.params.id), function(err, memory){
+            Memory.findById(req.params.id), function(err, memory){
                     if(err){
                            console.log(err);
                            res.redirect("/stories");
@@ -52,19 +52,18 @@ router.post("/",function(req, res){
                                 console.log(err);
                                }
                                else{
-                                  
                                switch(memory.category) {
                                     case story:
-                                        res.redirect(""/stories/" + (mongoose.Types.ObjectId(memory._id)")
+                                      res.redirect("/stories/" + memory._id);
                                         break;
                                     case image:
-                                        res.redirect("/images/' + memory._id")
+                                        res.redirect("/images/" + memory._id);
                                         break;
                                     case sound:
-                                        res.redirect("/sounds/' + memory._id")
+                                        res.redirect("/sounds/" + memory._id);
                                         break;
                                     default:
-                                        res.redirect("/")
+                                        res.redirect("/");
                                 
                                 }
                                }
@@ -79,7 +78,7 @@ router.post("/",function(req, res){
 
            
 
-            }))
+            }
                   
                };
             

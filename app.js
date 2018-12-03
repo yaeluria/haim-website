@@ -7,8 +7,9 @@ var mongoose    = require("mongoose"),
   //  LocalStrategy = require("passport-local"),
     methodOverride= require("method-override"),
     path          = require("path"),
-    Story = require("./models/story"),
+    Memory = require("./models/memory"),
     Comment     = require("./models/comment"),
+    
     //User        = require("./models/user"),
     seedDB      = require("./seeds"),
     port        = process.env.PORT || 3000;  
@@ -54,7 +55,7 @@ app.use(require("express-session")({
 app.use("/", indexRoutes);
 app.use("/stories", storiesRoutes);
 app.use("/stories/:id/comments/",commentRoutes);
-app.use("/about/", aboutRoutes);
+//app.use("/about/", aboutRoutes);
 
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))
