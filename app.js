@@ -6,6 +6,7 @@ var mongoose    = require("mongoose"),
   //  passport    = require("passport"),
   //  LocalStrategy = require("passport-local"),
     methodOverride= require("method-override"),
+    moment = require('moment'),
     path          = require("path"),
     Memory = require("./models/memory"),
     Comment     = require("./models/comment"),
@@ -29,7 +30,7 @@ app.use(methodOverride("_method"));
 app.use(flash());
 //seedDB();
 
-
+app.locals.moment = require('moment');
 // PASSPORT CONFIGURATION
 app.use(require("express-session")({
     secret: "Once again Rusty wins cutest dog!",
@@ -55,7 +56,7 @@ app.use(require("express-session")({
 app.use("/", indexRoutes);
 app.use("/stories", storiesRoutes);
 app.use("/stories/:id/comments/",commentRoutes);
-//app.use("/about/", aboutRoutes);
+app.use("/about/", aboutRoutes);
 
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))

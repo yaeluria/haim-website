@@ -27,7 +27,7 @@ function saveComment(memory, commentId, res){
     }
     else {
         switch (memory.category) {
-            case story:
+            case "story":
                 res.redirect("/stories/" + memory._id);
                 break;
             case image:

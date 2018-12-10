@@ -3,6 +3,7 @@ var mongoose = require("mongoose");
 var commentSchema = new mongoose.Schema({
     text: String,
     author: String
+
     // story: {
     //     type: mongoose.Schema.Types.ObjectId,
     //     ref: 'Story'
@@ -17,6 +18,9 @@ var commentSchema = new mongoose.Schema({
 // },{
 //         usePushEach: true
 //       }
+},
+{
+    timestamps: true
 });
 
 module.exports = mongoose.model("Comment", commentSchema);
