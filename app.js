@@ -7,6 +7,8 @@ var mongoose    = require("mongoose"),
   //  LocalStrategy = require("passport-local"),
     methodOverride= require("method-override"),
     moment = require('moment'),
+   
+
     path          = require("path"),
     Memory = require("./models/memory"),
     Comment     = require("./models/comment"),
@@ -38,6 +40,7 @@ app.use(require("express-session")({
     saveUninitialized: false
 
 }));
+
 // app.use(passport.initialize());
 // app.use(passport.session());
 // passport.use(new LocalStrategy(User.authenticate()));

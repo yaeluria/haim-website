@@ -2,7 +2,7 @@ var express = require("express");
 var router  = express.Router();
 var Memory = require("../models/memory");
 
-//var middleware = require("../middleware");
+var middleware = require("../middleware");
 
 
 //INDEX - show all stories
@@ -19,22 +19,25 @@ router.get("/", function(req, res){
 });
 
 //CREATE - add new story to DB
-router.post("/", function(req, res){
-    // get data from form and add to stories array
-    var author = req.body.author;
-    var image = req.body.image;
-    var content = req.body.content;
-    // var author = {
-    //     id: req.user._id,
-    //     username: req.user.username
-    // }
-    let category = req.body.category;
-    var newStory = {author: author, image: image, content: content, category: "story"};
+router.post("/", middleware.upload.single('image'), function(req, res){
+    middleware.cloudinary.uploader.upload(req.file.path, function(result) {
+       req.body.image = result.secure_url;
+       var image  = req.body.image;
+       var author = req.body.author;
+       var content = req.body.content;
+        // var author = {
+        //     id: req.user._id,
+        //     username: req.user.username
+        // }
+        let category = req.body.category;
+        var newStory = {author: author, image: image, content: content, category: "story"};
     // Create a new story and save to DB
    Memory.create(newStory, function(err, newlyCreated){
+  
         if(err){
             console.log(err);
         } else {
+           
             console.log("newlyCreated");
             console.log(newlyCreated);
             //redirect back to stories page
@@ -42,6 +45,7 @@ router.post("/", function(req, res){
             res.redirect("/stories");
         }
     });
+  });
 });
 
 //NEW - show form to create new story

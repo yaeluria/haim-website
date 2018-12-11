@@ -17,7 +17,7 @@
               
                     <p class='my-4'><%= story.content %></p>
                     <p class='mb-4'>
-                        <em>מאת: <%= story.author %></em>
+                        <em>פורסם ע״י <strong><%= story.author %></strong> <%= moment(story.createdAt).locale("he").fromNow(); %> </em>
                     </p>
                     
                 
@@ -34,7 +34,7 @@
                         <div class="col-md-12">
                             <strong><%= comment.author%></strong>
                             
-                                <span class="float-right"> <%= moment(comment.createdAt).locale("he").fromNow(); %> </span>
+                                <span class="float-right"> <em> <%= moment(comment.createdAt).locale("he").fromNow(); %> </em> </span>
                             <p>
                                 <%= comment.text%> 
                             </p>
