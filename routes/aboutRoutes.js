@@ -1,111 +1,91 @@
 var express = require("express");
 var router  = express.Router();
+var Memory = require("../models/memory");
+
 
 var Comment = require("../models/comment");
-//var About = require("../models/about");
+var About = new Memory({category: "about"});
+
 
 router.get("/", function(req,res){
-    res.render("about");
+
+
+About.save(function(err){
+    if (err) {
+        console.log(err);
+    } else {
+        Memory.findOne({ category: "about" }).populate("comments").exec(function(err, foundStory){
+            if(err){ ("this is the error");
+              console.log(err);
+            } else {
+               console.log("this is the foundStory.comments");
+               console.log(foundStory.comments);
+    
+                //render show template with that story
+               // res.render("stories/show", {story: foundStory});
+               res.render("about/about", {about: foundStory});
+          
+            }
+        
+    })
+}
 })
+});
+  
 
-
-// router.get("/", function(req, res){
-    
-//     //Get all comments from DB
-//    Comment.find({}, function(err, allComments){
-//        if(err){
-//            console.log(err);
-//        } else {
-//           res.render("about",{comments:allComments});
-//        }
-//     });
-// });
-
-//    router.get("/comments/new", function(req, res){
+router.get("/comments/new", function(req, res){
     
   
-//              res.render("comments/new");
-//    });
- 
-// router.get("/", function(req, res){
-//     // Get all stories from DB
-//    About.find({}, function(err, allComments){
-//        if(err){
-//            console.log(err);
-//        } else {
-//           res.render("about",{comments:allComments});
-//        }
-//     });
-// });
+             res.render("about/newComment");
+   });
+
+router.post("/comments", function (req, res) {
+    var newComment = req.body.comment;
+    console.log('got post');
+    Comment.create(newComment, function (err, comment) {
+        if (err) {
+            // req.flash("error", "Something went wrong");
+            console.log(err);
+        } else {
+            //save comment
+            comment.save(function (err, comment) {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    console.log("comment");
+                    console.log(comment);
+                    // let commentId = comment._id;
+                    //  [your_mongodb_model].query({ _id: mongoose.Types.ObjectId(id) });
+                   // console.log("req.params.id");
+                   // console.log(req.params.id);
+                   Memory.findOne({ category: "about" }, function (err,about) {
+                   about.comments.push(comment._id);
+                   about.save(function (err, memory) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                                res.redirect("/about");
+                
+                        }
+                    
+    
+                     });
+        
+    });
+};
+});
+}
+    });
+});
+
+   
 
 
 
-// router.post("/comments",function(req, res){
-//     //  var comment = req.body.comment;
-//   // var newComment = {comment: comment}
-  
-//         Comment.create(req.body.comment, function(err, comment){
-//            if(err){
-//                //req.flash("error", "Something went wrong");
-//                console.log(err);
-//            } else {
-               
-               
-//                //save comment
-//                comment.save();
-//               comments.push(comment._id);
-              
-//                console.log(comment);
-//                //req.flash("success", "Successfully added comment");
-//               // res.redirect("/about");
-//                res.redirect("/about");
-//            }
-       
-       
-//    });
-//    console.log(req.body.comment);
-// });
-  
 
-// show register form
-// router.get("/register", function(req, res){
-//    res.render("register"); 
-// });
 
-// //handle sign up logic
-// router.post("/register", function(req, res){
-//     var newUser = new User({username: req.body.username});
-//     User.register(newUser, req.body.password, function(err, user){
-//         if(err){
-//             req.flash("error", err.message);
-//             return res.render("register");
-//         }
-//         passport.authenticate("local")(req, res, function(){
-//            req.flash("success", "Welcome to YelpCamp " + user.username);
-//            res.redirect("/campgrounds"); 
-//         });
-//     });
-// });
-
-// //show login form
-// router.get("/login", function(req, res){
-//    res.render("login"); 
-// });
-
-// //handling login logic
-// router.post("/login", passport.authenticate("local", 
-//     {
-//         successRedirect: "/campgrounds",
-//         failureRedirect: "/login"
-//     }), function(req, res){
-// });
-
-// // logout route
-// router.get("/logout", function(req, res){
-//    req.logout();
-//    req.flash("success", "Logged you out!");
-//    res.redirect("/campgrounds");
-// });
 
 
 

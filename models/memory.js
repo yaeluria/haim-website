@@ -6,6 +6,7 @@ var memorySchema = new mongoose.Schema({
    content: String,
    author: String,
    category: String,
+   youlink: String,
    // author: [
    //   {
    //       type: mongoose.Schema.Types.ObjectId,
@@ -22,6 +23,9 @@ var memorySchema = new mongoose.Schema({
       }
    ]
    
+},
+{
+   timestamps: true
 });
 
 module.exports = mongoose.model("Memory", memorySchema);

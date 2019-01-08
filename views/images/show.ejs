@@ -6,36 +6,37 @@
        
        
        
-            <div class="mt-4">
           
-                <img class="smaller" src="<%= story.image %>">
-                </div>
-                
                 <div class="caption-full"> 
             
-               
+                <figure class="figure">
+                <p class='mt-4'></p>
+                <img src="<%= image.image %>" class="img-fluid bigger" alt="A generic square placeholder image with rounded corners in a figure.">
+                <figcaption class="figure-caption"><%= image.content %></figcaption>
+              </figure>
               
-                    <p class='my-4'><%= story.content %></p>
+                  
                     <p class='mb-4'>
-                        <em>פורסם ע״י <strong><%= story.author %></strong> <%= moment(story.createdAt).locale("he").fromNow(); %> </em>
+                        <em>פורסם ע״י <strong><%= image.author %></strong> <%= moment(image.createdAt).locale("he").fromNow(); %> </em>
                     </p>
                     
                 
             </div>
             <!-- <div class="well"> -->
                 
-                    <a class="btn btn-success" href="/stories/<%= story._id %>/comments/new">הוסף תגובה</a>
+                    <a class="btn btn-success" href="/images/<%= image._id %>/comments/new">להוספת תגובה</a>
               
                 <hr>
                 <div>
               
-                <% story.comments.forEach(function(comment){ %>
+                <% image.comments.forEach(function(comment){ %>
                      <div class="row">
                         <div class="col-md-12">
                             <strong><%= comment.author%></strong>
                             
                                 <span class="float-right"> <em> <%= moment(comment.createdAt).locale("he").fromNow(); %> </em> </span>
                             <p class="mt-2">
+                            
                                 <%= comment.text%> 
                             </p>
                             <hr>

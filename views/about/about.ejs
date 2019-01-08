@@ -1,4 +1,4 @@
-<% include ./partials/header %> 
+<% include ../partials/header %> 
 <div class="container">
         
      <div class="mt-4">
@@ -51,50 +51,39 @@
 <p>
 ב2018 הפיק את המחזמר זוכה הפרסים Soul Doctor,  שמבוסס על חייו של הרב קרליבך. ההפקה האחרונה שחיים התחיל בחייו ולא הספיק לסיים, הייתה של המחזמר האהוב עליו, ״קברט״. הוא יזם את ההפקה והיה אחראי להבאתה ארצה.
  </p>
- <p>
+ <p class="mb-4">
 חיים נהרג בתאונת פגע וברח שהתרחשה בערב חג הסוכות 2018. הוא הובא למנוחות בבית הקברות בהר הזיתים. הלווייתו בלטה באנשים הרבים מכלל הקבוצות בחברה הישראלית שבאו לנכוח ולחלוק לו כבוד אחרון כאדם וכמוסיקאי.
 </p>
 </div>
+<br>
 
-<% /* %>	
- <h1>הוסף תגובה</h1>
-     
-             <form action="about/comments" method="POST">
-                 <div class="form-group">
-                     <input class="form-control" type="text" name="comment[author]" placeholder="השם שלך">
-                 </div>
-             
-                <div class="form-group">
-                     <textarea class="form-control" rows="12" type="text" name="comment[text]" placeholder="התגובה שלך"></textarea>
-                 </div>
-                 <div class="form-group">
-                     <button class="btn btn-lg btn-primary btn-block">שלח</button>
-                 </div>
-             </form>
-             <a href="/about">Go Back</a>
-       </div>
 
-             <div class="text-right">
-                   <a class="btn btn-success" href="/about/comments/new">Add New Comment</a>
- 				 <hr>
-             </div> 
-       
-            <% comments.forEach(function(comment){ %>
-          
+
+<a class="btn btn-success" href="/about/comments/new">להוספת תגובה</a>
             
-                          <strong><%= comment.author %></strong>
-                         <span class="float-right">10 days ago</span>
-                         <p>
-                           <%= comment.text %>
- 						</p>
- 						<hr> 
-        
-         <% });%>
-     
-         </div>
-    </div>  
-<% */ %>
+<hr class="mt-5">
+<div>
+
+<% about.comments.forEach(function(comment){ %>
+     <div class="row">
+        <div class="col-md-12">
+            <strong><%= comment.author%></strong>
+            
+                <span class="float-right"> <em> <%= moment(comment.createdAt).locale("he").fromNow(); %> </em> </span>
+            <p class="mt-2">
+            
+                <%= comment.text%> 
+            </p>
+            <hr>
+        </div>
+      
+    </div>
+<% }) %>
+</div>
+
+
+
 	</div>
+</div>
 
-
-<% include ./partials/footer %> 
+<% include ../partials/footer %> 

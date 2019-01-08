@@ -9,11 +9,12 @@ var middleware = require("../middleware");
 router.get("/", function(req, res){
     
     //Get all stories from DB
-    Memory.find({category:"story"}, function(err, allStories){
+    Memory.find({category:"image"}, function(err, allImages){
        if(err){
            console.log(err);
        } else {
-          res.render("stories/index",{stories:allStories});
+         res.render("images/index",{images:allImages});
+         //res.send("this is the memories index");
        }
     });
 });
@@ -24,7 +25,7 @@ router.post("/", middleware.upload.single('image'), function (req, res) {
         var author = req.body.author;
         var content = req.body.content;
         let category = req.body.category;
-        var newStory = {author: author, image: image, content: content, category: "story"};
+        var newStory = {author: author, image: image, content: content, category: "image"};
         // Create a new story and save to DB
         Memory.create(newStory, function (err, newlyCreated) {
             if (err) {
@@ -34,8 +35,9 @@ router.post("/", middleware.upload.single('image'), function (req, res) {
                 console.log("newlyCreated");
                 console.log(newlyCreated);
                 //redirect back to stories page
-                // console.log(newlyCreated);
-                res.redirect("/stories");
+                 console.log(newlyCreated);
+                res.redirect("/images");
+        
             }
         });
     }
@@ -54,7 +56,7 @@ router.post("/", middleware.upload.single('image'), function (req, res) {
 
 //NEW - show form to create new story
 router.get("/new", function(req, res){
-   res.render("stories/new"); 
+   res.render("images/new"); 
 });
 
 // SHOW - shows more info about one campground
@@ -70,7 +72,9 @@ router.get("/:id", function(req, res){
            console.log(foundStory.comments);
 
             //render show template with that story
-            res.render("stories/show", {story: foundStory});
+           // res.render("stories/show", {story: foundStory});
+           res.render("images/show", {image: foundStory});
+      
         }
     });
 });

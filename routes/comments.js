@@ -5,15 +5,20 @@ var router = express.Router({ mergeParams: true });
 var Memory = require("../models/memory");
 var Comment = require("../models/comment");
 //var About = require("../models/about");
+
 router.get("/new", function (req, res) {
+    
     // find story by id
     console.log(req.params.id);
-    Memory.findById(req.params.id, function (err, story) {
+    console.log(req.params.categories);
+
+    Memory.findById(req.params.id, function (err, memory) {
         if (err) {
             console.log(err);
         } else {
-            console.log(story);
-            res.render("comments/new", { story: story });
+            console.log(memory);
+            res.render("comments/new", { categoryPlural: req.params.categories,
+               memory: memory });
         }
     })
 });
@@ -30,10 +35,10 @@ function saveComment(memory, commentId, res){
             case "story":
                 res.redirect("/stories/" + memory._id);
                 break;
-            case image:
+            case "image":
                 res.redirect("/images/" + memory._id);
                 break;
-            case sound:
+            case "sound":
                 res.redirect("/sounds/" + memory._id);
                 break;
             default:

@@ -19,8 +19,12 @@ var mongoose    = require("mongoose"),
 //requring routes
 var commentRoutes    = require("./routes/comments"),
     storiesRoutes = require("./routes/stories"),
-    indexRoutes      = require("./routes/index")
+    imagesRoutes   = require("./routes/images"),
+    eventRoutes = require("./routes/events"),
+    //musicRoutes   = require("./routes/music"),
+    indexRoutes      = require("./routes/index"),
     aboutRoutes   = require("./routes/aboutRoutes")
+    soundRoutes   = require("./routes/sounds")
     
 mongoose.Promise = require('bluebird');
 mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/haim_app", { useNewUrlParser: true });
@@ -57,9 +61,12 @@ app.use(require("express-session")({
 // });
 
 app.use("/", indexRoutes);
-app.use("/stories", storiesRoutes);
-app.use("/stories/:id/comments/",commentRoutes);
+app.use("/stories/", storiesRoutes);
+app.use("/:categories/:id/comments/",commentRoutes);
 app.use("/about/", aboutRoutes);
+app.use("/images/", imagesRoutes);
+app.use("/sounds/", soundRoutes);
+app.use("/events/", eventRoutes);
 
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))

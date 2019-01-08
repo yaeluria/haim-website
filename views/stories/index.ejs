@@ -12,7 +12,7 @@
     </header>
    
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-right">
         <!-- <div class="card-deck"> -->
     <% stories.forEach(function(story){ %>
           <div class="col-auto mb-3">
@@ -21,19 +21,12 @@
       <div class="card mt-3">
          <small class="card-header">מאת: <%= story.author %></small>
            <div class="card-body">
-             <% if(story.image.length > 0){ %>
-              <img class ="img" src="<%= story.image %>" >
-    
-              <p class="card-text"> <%= story.content.substring(0,40) %> <% if(story.content.length >= 40){ %>
-                ...
-               <%}%></p>
-           <% } %>
-           <% if(story.image.length <= 0){ %>
-           <p class="card-text"> <%= story.content.substring(0,40) %> <% if(story.content.length 
-           >= 40){ %>
-             ...
-            <%}%></p>
-           <% } %>
+          <% if(story.image !== null){ %>
+           <img class ="img" src="<%= story.image %>" >
+        <% } %>
+        <p class="card-text"> <%= story.content.substring(0,40) %> <% if(story.content.length >= 40){ %>
+        ...
+       <%}%></p>
          
            <a href="/stories/<%= story._id %>" class="btn btn-primary">לקריאה</a>
       

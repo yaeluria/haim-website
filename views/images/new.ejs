@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+<div class="container mt-4">
+    
+    <h1></h1>
+     
+            <form action="/images" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="author" placeholder="השם שלך">
+                </div>
+               
+              
+
+                <div class="form-group">
+               
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="image" name="image" accept="image/*">
+                  <label class="custom-file-label" for="image">בחירת קובץ</label>
+                </div>
+              </div>
+
+                <div class="form-group">
+                    <input class="form-control"  type="text" name="content" placeholder="כיתוב לתמונה"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">שלח</button>
+                </div>
+            </form>
+            <a href="/images">חזרה</a>
+        </div>
+    
+
+<% include ../partials/footer %>

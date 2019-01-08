@@ -28,6 +28,18 @@ middlewareObj.cloudinary.config({
   api_secret: "LjtHaFYGkL2h-pS1lKCSXwa1mBc"
 });
 
+// middlewareObj.convertYoutube(input) = function(req,res,next){
+//   var pattern = /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(\S+)/g;
+//   if (pattern.test(input)) {
+//     var replacement = '<iframe width="420" height="345" src="http://www.youtube.com/embed/$1" frameborder="0" allowfullscreen></iframe>';
+//     var input = input.replace(pattern, replacement);
+//     // For start time, turn get param & into ?
+//     var input = input.replace('&amp;t=', '?t=');
+//   }
+//   return input;
+  
+// }
+
 // middlewareObj.checkCampgroundOwnership = function(req, res, next) {
 //  if(req.isAuthenticated()){
 //         Campground.findById(req.params.id, function(err, foundCampground){

@@ -1,0 +1,32 @@
+<% include ../partials/header %> 
+
+<div class="container">
+     <header class="jumbotron">
+      <div class="container">
+        <h1>סרטונים</h1>
+        <p class="lead">כאן אפשר לצפות בסרטונים על חיים, ולשמוע קטעי מוסיקה מפרי עטו ו/או בביצועו</p>
+        <p>
+          <a class="btn btn-primary btn-large" href="/sounds/new">לשיתוף סרטון</a>
+        </p>
+      </div>
+    </header>
+   
+
+    <div class="row justify-content-right">
+        <!-- <div class="card-deck"> -->
+        <% sounds.forEach(function(sound){ %>
+             <div class="col-auto mb-3">
+               <div class="card">
+              <div class="embed-responsive embed-responsive-1by1">
+                 <iframe class="embed-responsive-item" height="100%" src= "<%= sound.youlink %>" allowfullscreen></iframe>
+              </div>
+             </div>
+             </div>
+     <!-- </div> -->
+
+    <% }); %>
+
+  </div>
+
+</div>
+<% include ../partials/footer %>

@@ -3,7 +3,7 @@
  
        <h1>הוספת תגובה</h1>
        
-            <form action="/<%= categoryPlural %>/<%= memory._id %>/comments" method="POST">
+            <form action="/about/comments" method="POST">
 
                 <div class="form-group">
                     <input class="form-control" type="text" name="comment[author]" placeholder="השם שלך">
@@ -22,4 +22,3 @@
     </div>
 </div>
 <% include ../partials/footer %>
-
