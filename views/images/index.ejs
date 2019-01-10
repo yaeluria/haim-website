@@ -1,10 +1,12 @@
 <% include ../partials/header %> 
 
 <div class="container">
-     <header class="jumbotron">
+     <header class="jumbotron mb-3">
       <div class="container">
-        <h1>תמונות וציורים של חיים</h1>
+
+        <h1 class="mb-5">תמונות וציורים של חיים</h1>
         <p class="lead"></p>
+
         <p>
           <a class="btn btn-primary btn-large" href="/images/new">לשיתוף תמונה או ציור</a>
         </p>
@@ -17,18 +19,20 @@
     <% images.forEach(function(image){ %>
           <div class="col-auto mb-3">
        
- 
+   
       <div class="card mt-3">
          <small class="card-header">הועלה ע״י: <%= image.author%></small>
            <div class="card-body">
-           <img class ="img" src="<%= image.image %>" >
-      </p>
+           <img class ="img-index" src="<%= image.image %>" >
+           <a href="/images/<%= image._id %>" class="on-image btn btn-primary">לצפייה</a>
+
+      </div>
+      </div>
          
-           <a href="/images/<%= image._id %>" class="btn btn-primary">לצפייה</a>
       
      
-          </div>
-        </div>
+         
+     
      <!-- </div> -->
 </div>
     <% }); %>

@@ -9,7 +9,6 @@ min-height: calc(100vh - 95px);
 }
 
 
-
 .thumbnail img {
   width: 100%;
 }
@@ -26,13 +25,18 @@ min-height: calc(100vh - 95px);
   display: inline;
 }
 
-.form-group {
-  width: 60%;
-}
 
 #comment-box {
   height: 50px;
 }
+
+.back-caret{
+  font-size: 100%;
+  color: blue;
+
+}
+
+
 
 .img {
   position: relative;
@@ -42,7 +46,7 @@ min-height: calc(100vh - 95px);
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
- object-fit: scale-down;
+  object-fit: scale-down;
 
 }
 #image{
@@ -57,11 +61,31 @@ min-height: calc(100vh - 95px);
  object-fit: scale-down;
 
 }
+.on-image{
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  display:none;
 
-.card{
+}
+
+
+
+.card {
   width: 18rem;
   height: 18rem; 
 }
+.card:hover .on-image {
+  display: block;
+}
+.img-index{
+  object-fit: scale-down;
+  max-width: 250px;
+  max-height: 200px;
+}
+
 
 .smaller{
  
@@ -70,6 +94,7 @@ min-height: calc(100vh - 95px);
  object-fit: scale-down;
 
 }
+
 
 .bigger{
  
@@ -80,50 +105,50 @@ min-height: calc(100vh - 95px);
  }
  #haim-image{
    
-   width: 100%;
-   height: 715px;
-   background-image: url("https://cdn.isnet.co.il/dyncontent/2018/10/14/1b7bf985-e3b2-46d2-8cf9-1defbddd5369.png");
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   color: white;
-   text-align: center; 
-   padding: 70px 0;
-   /* padding-right: 800px; */
-   /* padding-top: 40px; */
-   
-   
- }
+  width: 100%;
+  height: 715px;
+  background-image: url("https://cdn.isnet.co.il/dyncontent/2018/10/14/1b7bf985-e3b2-46d2-8cf9-1defbddd5369.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  text-align: center; 
+  padding: 70px 0;
+  /* padding-right: 800px; */
+  /* padding-top: 40px; */
+  
+  
+}
 
 
- @media (min-width: 768px) {
-   #haim-image{
-  padding-right: 500px;
-   }
+@media (min-width: 768px) {
+  #haim-image{
+ padding-right: 400px;
+  }
+     }
+     @media screen and (max-width: 600px){
+       #haim-image{
+         width: 100%;
+         height: 400px;
+         background-size: cover;
+         text-align: center;
+         padding: 100px;
+
+       }
+     }
+      .video-wrapper{
+  
+        color: white;
+        margin: 40px 0px;
+        margin-bottom: 40px;
+        background-image:  linear-gradient(to right, white 80%, rgb(28, 68, 71) 20%)
       }
       @media screen and (max-width: 600px){
-        #haim-image{
-          width: 100%;
-          height: 400px;
-          background-size: cover;
-          padding: 100px;
-          text-align: center;
-
+        .video-wrapper{
+          background-image:  linear-gradient(to right, white 60%, rgb(28, 68, 71) 40%);
+          font-size: 0.8rem;
         }
       }
-.video-wrapper{
-  
-  color: white;
-  margin: 40px 0px;
-  margin-bottom: 40px;
-  background-image:  linear-gradient(to right, white 80%, rgb(28, 68, 71) 20%)
-}
-@media screen and (max-width: 600px){
-  .video-wrapper{
-    background-image:  linear-gradient(to right, white 60%, rgb(28, 68, 71) 40%);
-    font-size: 0.8rem;
-  }
-}
 
 .white-text{
   font-size: 200%;
@@ -145,9 +170,7 @@ min-height: calc(100vh - 95px);
   padding-top: 200px;
 
 } 
-@media (min-width: 768px) { 
-  
- }
+
 
 @media screen and (min-width: 1000px){
   .memory-share{
@@ -212,6 +235,14 @@ min-height: calc(100vh - 95px);
 	mat
 }*/
 
+.construct{
+  height: 100vh;
+  padding-top: 20%;
+  background-image: url("https://images.unsplash.com/photo-1533378890784-b2a5b0a59d40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1021&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
 footer{
   /* padding: 20px 0px 20px 800px; */
   background-color: #f5f6f7;

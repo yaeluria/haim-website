@@ -1,17 +1,23 @@
 <% include ../partials/header %>
 <div class="container mt-4">
+    <div class="form-row">
+    <div class="col-md-2"></div>
     
+    <div class="outset col-md-6">
     <h1>שתפו אותנו בקטעי מוסיקה של חיים</h1>
+
      
             <form action="/sounds" method="POST">
                 <div class="form-group">
+                
                     <input class="form-control" type="text" name="author" placeholder="השם שלך">
                 </div>
                
               
 
             <div class="form-group">
-                    <input class="form-control" type="url" name="youlink" placeholder="קישור לסרטון">
+                    <input class="form-control" type="url" name="youlink" placeholder="קישור לסרטון"  aria-describedby="linkHelpBlock">
+                    <small id="linkHelpBlock" class="form-text text-muted"> האתר תומך בסרטוני YouTube בלבד</small>
                 </div>
 
                 <div class="form-group">
@@ -23,6 +29,10 @@
             </form>
             <a href="/sounds">חזרה</a>
         </div>
+
+        </div>
+        </div>
+        
     
 
 <% include ../partials/footer %>

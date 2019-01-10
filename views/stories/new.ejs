@@ -1,29 +1,45 @@
 <% include ../partials/header %>
 <div class="container mt-4">
+    <div class="form-row">
+    <div class="col-md-2"></div>
     
+    <div class="col-md-6">
     <h1>ספרו לנו משהו על חיים</h1>
      
             <form action="/stories" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="author" placeholder="השם שלך">
+                   <label for="author">השם שלך</label>
+                    <input class="form-control w-100" type="text" name="author">
                 </div>
-                  <div class="form-group">
-               
-                <div class="custom-file">
+                  
+                <%/*
+              <div class="custom-file">
                   <input type="file" class="custom-file-input" id="image" name="image" accept="image/*">
                   <label class="custom-file-label" for="image">בחירת תמונה (לא חובה)</label>
                 </div>
                 </div>
+                 */ %>
+            <div class="form-group">
+                <label for="image"> לבחירת תמונה מהמחשב (לא חובה)</label>
+               <input class="form-control" type='file' name='image' accept="image/*"/>
+             </div>
               
                 <div class="form-group">
-                    <textarea class="form-control" rows="12" type="text" name="content" placeholder="הטקסט שלך"></textarea>
+                    <label for="content"> סיפור או מילים על חיים</label>
+                    <textarea class="form-control" rows="12" type="text" name="content"></textarea>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-lg btn-primary btn-block">שליחה</button>
                 </div>
             </form>
             <a href="/stories">חזרה</a>
+            </div>
+    <div class="col-md-4"></div>
+
+            </div>
+
         </div>
+
     
 
 <% include ../partials/footer %>
