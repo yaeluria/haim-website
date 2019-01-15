@@ -10,11 +10,11 @@ router.get("/events", function(req, res){
 });
 
 router.get("/works", function(req, res){
-    res.render("construction");
+    res.render("construction", {active: "works"});
 });
 
 router.get("/press", function(req, res){
-    res.render("construction");
+    res.render("construction", {active: "press"});
 });
 
 
