@@ -20,7 +20,6 @@ var mongoose    = require("mongoose"),
 var commentRoutes    = require("./routes/comments"),
     storiesRoutes = require("./routes/stories"),
     imagesRoutes   = require("./routes/images"),
-    eventRoutes = require("./routes/events"),
     //musicRoutes   = require("./routes/music"),
     indexRoutes      = require("./routes/index"),
     aboutRoutes   = require("./routes/aboutRoutes")
@@ -66,7 +65,7 @@ app.use("/:categories/:id/comments/",commentRoutes);
 app.use("/about/", aboutRoutes);
 app.use("/images/", imagesRoutes);
 app.use("/sounds/", soundRoutes);
-app.use("/events/", eventRoutes);
+
 
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))

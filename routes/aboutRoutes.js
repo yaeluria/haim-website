@@ -7,6 +7,7 @@ var Comment = require("../models/comment");
 var About = new Memory({category: "about"});
 
 
+
 router.get("/", function(req,res){
 
 
@@ -20,12 +21,16 @@ About.save(function(err){
             } else {
                console.log("this is the foundStory.comments");
                console.log(foundStory.comments);
-    
+               
                 //render show template with that story
                // res.render("stories/show", {story: foundStory});
-               res.render("about/about", {about: foundStory});
-          
+               res.render("about/about", {about: foundStory,  
+                // active : "about"
             }
+                );
+            }
+          
+            
         
     })
 }

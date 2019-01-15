@@ -4,12 +4,17 @@
     <div class="col-md-2"></div>
     
     <div class="col-md-6">
+     <div class="back-caret mb-2">
+               <i class="fas fa-caret-right float-left ml-2 mr-1 mt-1"></i>
+
+              <a href="/stories"> חזרה למלים לזכרו</a>
+               </div>
     <h1>ספרו לנו משהו על חיים</h1>
      
             <form action="/stories" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                    <label for="author">השם שלך</label>
-                    <input class="form-control w-100" type="text" name="author">
+                    <input class="form-control w-100" type="text" name="author" required>
                 </div>
                   
                 <%/*
@@ -20,19 +25,19 @@
                 </div>
                  */ %>
             <div class="form-group">
-                <label for="image"> לבחירת תמונה מהמחשב (לא חובה)</label>
+                <label for="image"> לבחירת תמונה (לא חובה)</label>
                <input class="form-control" type='file' name='image' accept="image/*"/>
              </div>
               
                 <div class="form-group">
                     <label for="content"> סיפור או מילים על חיים</label>
-                    <textarea class="form-control" rows="12" type="text" name="content"></textarea>
+                    <textarea class="form-control" rows="12" type="text" name="content" required></textarea>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-lg btn-primary btn-block">שליחה</button>
                 </div>
             </form>
-            <a href="/stories">חזרה</a>
+            
             </div>
     <div class="col-md-4"></div>
 

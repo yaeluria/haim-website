@@ -6,10 +6,16 @@
     <div class="col-md-2"></div>
     
     <div class="col-md-6">
+     <div class="back-caret mb-2">
+               <i class="fas fa-caret-right float-left ml-2 mr-1 mt-1"></i>
+
+              <a href="/images"> חזרה לתמונות וציורים</a>
+               </div>
        <h1>שתפו אותנו בתמונות של חיים</h1>
             <form action="/images" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="author" placeholder="השם שלך">
+                    <label for="author">השם שלך</label>
+                    <input class="form-control" type="text" name="author" required>
                 </div>
                
               
@@ -24,17 +30,18 @@
               */ %>
             
              <div class="form-group">
-               <input class="form-control" type='file' name='image' accept="image/*"/>
+               <label for="image">בחירת תמונה</label>
+               <input class="form-control" type='file' name='image' accept="image/*" required>
              </div>
 
                 <div class="form-group">
-                    <input class="form-control"  type="text" name="content" placeholder="כיתוב לתמונה">
+                    <input class="form-control"  type="text" name="content" placeholder="(לא חובה)כיתוב לתמונה">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-lg btn-primary btn-block">שלח</button>
                 </div>
             </form>
-            <a href="/images">חזרה</a>
+ 
         </div>
     <div class="col-md-2"></div>
 
