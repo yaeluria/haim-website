@@ -41,6 +41,7 @@ router.post("/", middleware.upload.single('image'), function (req, res) {
             }
         });
     }
+    
     let path = req.file ? req.file.path : '';
     if (path) {
         middleware.cloudinary.uploader.upload(path, function (result) {

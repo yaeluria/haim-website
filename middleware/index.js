@@ -1,10 +1,18 @@
-var Story = require("../models/story");
-var Comment = require("../models/comment");
+
+// var fs = require("fs");
+// if (!fs.existsSync("../middleware/definitions")) {
+//     console.log("You need to define your own definitions file: middleware/definitions.js  " +
+//         "Take a look at middleware/definitions.example.js");
+//     process.exit(1);
+// }
+
+var Definitions = require("../middleware/definitions");
 
 // all the middleare goes here
 var middlewareObj = {};
 
 var multer = require('multer');
+require('dotenv').config();
 
 var storage = multer.diskStorage({
   filename: function(req, file, callback) {
@@ -23,9 +31,9 @@ middlewareObj.upload = multer({ storage: storage, fileFilter: imageFilter});
 middlewareObj.cloudinary = require('cloudinary');
 
 middlewareObj.cloudinary.config({ 
-  cloud_name: 'drvycak8r', 
-  api_key: "731285167646852", 
-  api_secret: "LjtHaFYGkL2h-pS1lKCSXwa1mBc"
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET
 });
 
 // middlewareObj.convertYoutube(input) = function(req,res,next){

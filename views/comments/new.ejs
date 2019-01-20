@@ -1,4 +1,4 @@
-<%- include('../partials/header', {active: "<%= categoryPlural %>"}); %>
+<%- include ../partials/header %>
 
 <div class="container mt-4">
        <div class="form-row">
@@ -8,11 +8,11 @@
     <div class="back-caret mb-2">
                <i class="fas fa-caret-right float-left ml-2 mr-1 mt-1"></i>
 
-           <a href="/<%= categoryPlural %>/<%= memory._id %>">חזרה </a>
+           <a href="/<%= active %>/<%= memory._id %>">חזרה </a>
                </div>
        <h1>הוסיפו תגובה</h1>
        
-            <form action="/<%= categoryPlural %>/<%= memory._id %>/comments" method="POST">
+            <form action="/<%= active %>/<%= memory._id %>/comments" method="POST">
 
                 <div class="form-group">
                     <label for="comment[author]">השם שלך</label>

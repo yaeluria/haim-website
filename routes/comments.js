@@ -17,7 +17,7 @@ router.get("/new", function (req, res) {
             console.log(err);
         } else {
             console.log(memory);
-            res.render("comments/new", { categoryPlural: req.params.categories,
+            res.render("comments/new", { active: req.params.categories,
                memory: memory });
         }
     })

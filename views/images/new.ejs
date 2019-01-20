@@ -13,7 +13,8 @@
               <a href="/images"> חזרה לתמונות וציורים</a>
                </div>
        <h1>שתפו אותנו בתמונות של חיים</h1>
-            <form action="/images" method="POST" enctype="multipart/form-data">
+            <form action="/images" method="POST" enctype="multipart/form-data" onsubmit= "checkForm(this)">
+            
                 <div class="form-group">
                     <label for="author">השם שלך</label>
                     <input class="form-control" type="text" name="author" required>
@@ -31,16 +32,23 @@
               */ %>
             
              <div class="form-group">
+             
                <label for="image">בחירת תמונה</label>
+            
                <input class="form-control" type='file' name='image' accept="image/*" required>
+               
              </div>
+             
 
                 <div class="form-group">
-                    <input class="form-control"  type="text" name="content" placeholder="(לא חובה)כיתוב לתמונה">
+               <label for="content">כיתוב לתמונה (לא חובה)</label>
+
+                    <input class="form-control"  type="text" name="content" >
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-lg btn-primary btn-block">שלח</button>
+                    <input type="submit" name="myButton" value="שליחה" class="btn btn-lg btn-primary btn-block">
                 </div>
+         
             </form>
  
         </div>

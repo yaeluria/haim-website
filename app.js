@@ -27,6 +27,7 @@ var commentRoutes    = require("./routes/comments"),
     
 mongoose.Promise = require('bluebird');
 mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/haim_app", { useNewUrlParser: true });
+require('dotenv').config()
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -43,6 +44,7 @@ app.use(require("express-session")({
     saveUninitialized: false
 
 }));
+require('dotenv').config();
 
 // app.use(passport.initialize());
 // app.use(passport.session());
