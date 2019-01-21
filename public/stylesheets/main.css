@@ -4,6 +4,9 @@ body {
   padding-top: 60px;
  
 }
+.preserve-breaks{
+  white-space: pre-wrap;
+}
 #content{
 min-height: calc(100vh - 95px); 
 }
@@ -26,9 +29,6 @@ min-height: calc(100vh - 95px);
 }
 
 
-#comment-box {
-  height: 50px;
-}
 
 .back-caret{
   font-size: 100%;

@@ -6,7 +6,7 @@
 //     process.exit(1);
 // }
 
-var Definitions = require("../middleware/definitions");
+
 
 // all the middleare goes here
 var middlewareObj = {};

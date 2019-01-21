@@ -45,7 +45,7 @@ router.get("/comments/new", function(req, res){
    });
 
 router.post("/comments", function (req, res) {
-    var newComment = req.body.comment;
+    var newComment = req.sanitize(req.body.comment.text);
     console.log('got post');
     Comment.create(newComment, function (err, comment) {
         if (err) {

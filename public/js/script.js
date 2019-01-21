@@ -8,3 +8,4 @@ function checkForm(form) // Submit button clicked
   form.myButton.value = "בטעינה. תודה על הסבלנות.";
   return true;
 }
+

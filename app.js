@@ -7,6 +7,7 @@ var mongoose    = require("mongoose"),
   //  LocalStrategy = require("passport-local"),
     methodOverride= require("method-override"),
     moment = require('moment'),
+    expressSanitizer = require('express-sanitizer'),
    
 
     path          = require("path"),
@@ -35,6 +36,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
 //seedDB();
+app.use(expressSanitizer());
 
 app.locals.moment = require('moment');
 // PASSPORT CONFIGURATION

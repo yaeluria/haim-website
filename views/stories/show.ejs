@@ -11,24 +11,25 @@
               <a href="/stories"> חזרה למלים לזכרו</a>
                </div>
        
-            <div class="row mt-4">
-              <div class="col-sm-6">
-          
+         <% if(story.image){ %>
+        <div class="row mt-4">
+            <div class="col-sm-6">
+
                 <img class="img-fluid" src="<%= story.image %>">
-              </div>
             </div>
+        </div>
+        <% }  %>
                 
-                <div class="caption-full"> 
             
                
               
-                    <p class='my-4'><%= story.content %></p>
+                    <p class='preserve-breaks my-4'><%= story.content %></p>
                     <p class='mb-4'>
                         <em>פורסם ע״י <strong><%= story.author %></strong> <%= moment(story.createdAt).locale("he").fromNow(); %> </em>
                     </p>
                     
                 
-            </div>
+
             <!-- <div class="well"> -->
                 
                     <a class="btn btn-success" href="/stories/<%= story._id %>/comments/new">הוסף תגובה</a>
