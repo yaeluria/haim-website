@@ -21,8 +21,8 @@ router.get("/", function(req, res){
 router.post("/", middleware.upload.single('image'), function (req, res) {
     function createMemory(image) {
        // if (!image) image = null;
-        var author = req.body.author;
-        var content = req.body.content;
+        var author = req.sanitize(req.body.author);
+        var content = req.sanitize(req.body.content);
         let category = req.body.category;
         var newStory = {author: author, image: image, content: content, category: "story"};
         // Create a new story and save to DB

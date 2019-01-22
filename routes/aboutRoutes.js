@@ -39,13 +39,13 @@ About.save(function(err){
   
 
 router.get("/comments/new", function(req, res){
-    
-  
              res.render("about/newComment");
    });
 
 router.post("/comments", function (req, res) {
-    var newComment = req.sanitize(req.body.comment.text);
+    var text = req.sanitize(req.body.comment.text);
+    var author = req.sanitize(req.body.comment.author);
+    var newComment = {text: text, author: author};
     console.log('got post');
     Comment.create(newComment, function (err, comment) {
         if (err) {

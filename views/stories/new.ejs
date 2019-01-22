@@ -12,7 +12,7 @@
                </div>
     <h1>ספרו לנו על חיים</h1>
      
-            <form action="/stories" method="POST" enctype="multipart/form-data">
+            <form action="/stories" method="POST" onsubmit= "checkForm(this)" enctype="multipart/form-data">
                 <div class="form-group">
                    <label for="author">השם שלך</label>
                     <input class="form-control w-100" type="text" name="author" required>
@@ -29,7 +29,7 @@
                     <textarea class="form-control" rows="12" type="text" name="content" required></textarea>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-lg btn-primary btn-block">שליחה</button>
+                    <input type="submit" name="myButton" value="שליחה" class="btn btn-lg btn-primary btn-block">
                 </div>
             </form>
             

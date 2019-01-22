@@ -43,8 +43,8 @@ router.get("/", function(req, res){
 //     });
 
 router.post("/", function (req, res) {
-    var author = req.body.author;
-        var content = req.body.content;
+    var author = req.sanitize(req.body.author);
+        var content = req.sanitize(req.body.content);
         let category = req.body.category;
         let youlink = convertYoutube(req.body.youlink);
         var newSound = {author: author, youlink: youlink, content: content, category: "sound"};
@@ -56,6 +56,7 @@ router.post("/", function (req, res) {
         // For start time, turn get param & into ?
         var input = input.replace('&amp;t=', '?t=');
         }
+    
         console.log("this is the input");
         console.log(input);
         return input;

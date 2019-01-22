@@ -52,7 +52,9 @@ function saveComment(memory, commentId, res){
 
 //Comments Create
 router.post("/", function (req, res) {
-    var newComment = req.body.comment;
+    var text = req.sanitize(req.body.comment.text);
+    var author = req.sanitize(req.body.comment.author);
+    var newComment = {text: text, author: author};
     console.log('got post');
     Comment.create(newComment, function (err, comment) {
         if (err) {
