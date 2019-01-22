@@ -3,8 +3,6 @@ var mongoose    = require("mongoose"),
     app         = express(),
     flash       = require("connect-flash"),
     bodyParser  = require("body-parser"),
-  //  passport    = require("passport"),
-  //  LocalStrategy = require("passport-local"),
     methodOverride= require("method-override"),
     moment = require('moment'),
     expressSanitizer = require('express-sanitizer'),
@@ -14,14 +12,12 @@ var mongoose    = require("mongoose"),
     Memory = require("./models/memory"),
     Comment     = require("./models/comment"),
     
-    //User        = require("./models/user"),
-    seedDB      = require("./seeds"),
+   // seedDB      = require("./seeds"),
     port        = process.env.PORT || 3000;  
 //requring routes
 var commentRoutes    = require("./routes/comments"),
     storiesRoutes = require("./routes/stories"),
     imagesRoutes   = require("./routes/images"),
-    //musicRoutes   = require("./routes/music"),
     indexRoutes      = require("./routes/index"),
     aboutRoutes   = require("./routes/aboutRoutes")
     soundRoutes   = require("./routes/sounds")
@@ -48,20 +44,6 @@ app.use(require("express-session")({
 }));
 require('dotenv').config();
 
-// app.use(passport.initialize());
-// app.use(passport.session());
-// passport.use(new LocalStrategy(User.authenticate()));
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
-
-
-// app.use(function(req, res, next){
-//    res.locals.currentUser = req.user;
-//    res.locals.error = req.flash("error");
-//    res.locals.success = req.flash("success");
-
-//    next();
-// });
 
 app.use("/", indexRoutes);
 app.use("/stories/", storiesRoutes);

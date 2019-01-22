@@ -14,7 +14,6 @@ router.get("/", function(req, res){
            console.log(err);
        } else {
          res.render("images/index",{images:allImages});
-         //res.send("this is the memories index");
        }
     });
 });
@@ -34,7 +33,7 @@ router.post("/", middleware.upload.single('image'), function (req, res) {
 
                 console.log("newlyCreated");
                 console.log(newlyCreated);
-                //redirect back to stories page
+                //redirect back to images page
                  console.log(newlyCreated);
                 res.redirect("/images");
         
@@ -55,14 +54,11 @@ router.post("/", middleware.upload.single('image'), function (req, res) {
 });
 
 
-//NEW - show form to create new story
 router.get("/new", function(req, res){
    res.render("images/new"); 
 });
 
-// SHOW - shows more info about one campground
 router.get("/:id", function(req, res){
-    //find the story with provided ID
     console.log("req.params.id");
     console.log(req.params.id);
     Memory.findOne({ _id: req.params.id }).populate("comments").exec(function(err, foundStory){
@@ -72,8 +68,6 @@ router.get("/:id", function(req, res){
            console.log("this is the foundStory.comments");
            console.log(foundStory.comments);
 
-            //render show template with that story
-           // res.render("stories/show", {story: foundStory});
            res.render("images/show", {image: foundStory});
       
         }

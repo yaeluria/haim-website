@@ -8,7 +8,7 @@ var Comment = require("../models/comment");
 
 router.get("/new", function (req, res) {
     
-    // find story by id
+    // find memory by id
     console.log(req.params.id);
     console.log(req.params.categories);
 
