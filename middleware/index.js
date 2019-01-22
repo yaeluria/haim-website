@@ -1,14 +1,4 @@
 
-// var fs = require("fs");
-// if (!fs.existsSync("../middleware/definitions")) {
-//     console.log("You need to define your own definitions file: middleware/definitions.js  " +
-//         "Take a look at middleware/definitions.example.js");
-//     process.exit(1);
-// }
-
-
-
-// all the middleare goes here
 var middlewareObj = {};
 
 var multer = require('multer');

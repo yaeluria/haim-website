@@ -69,8 +69,7 @@ router.post("/", function (req, res) {
                 else {
                     console.log("comment");
                     console.log(comment);
-                    // let commentId = comment._id;
-                    //  [your_mongodb_model].query({ _id: mongoose.Types.ObjectId(id) });
+                   
                     console.log("req.params.id");
                     console.log(req.params.id);
 

@@ -83,43 +83,14 @@ router.post("/", function (req, res) {
 
 
     
-//     let path = req.file ? req.file.path : '';
-//     if (path) {
-//         middleware.cloudinary.uploader.upload(path, function (result) {
-//             var image = result.secure_url || null;
-//             createMemory(image);
-//         });
-//     }
-//     else {
-//         createMemory(null);
-//     }
-// });
 
 
-//NEW - show form to create new story
+
+//NEW - show form to create new sound
 router.get("/new", function(req, res){
    res.render("sounds/new"); 
 });
 
-// // SHOW - shows more info about one campground
-// router.get("/:id", function(req, res){
-//     //find the story with provided ID
-//     console.log("req.params.id");
-//     console.log(req.params.id);
-//     Memory.findOne({ _id: req.params.id }).populate("comments").exec(function(err, foundStory){
-//         if(err){ ("this is the error");
-//           console.log(err);
-//         } else {
-//            console.log("this is the foundStory.comments");
-//            console.log(foundStory.comments);
-
-//             //render show template with that story
-//            // res.render("stories/show", {story: foundStory});
-//            res.render("images/show", {image: foundStory});
-      
-//         }
-//     });
-// });
 
 
 
