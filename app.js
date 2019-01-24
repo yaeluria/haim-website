@@ -6,7 +6,6 @@ var mongoose    = require("mongoose"),
     methodOverride= require("method-override"),
     moment = require('moment'),
     expressSanitizer = require('express-sanitizer'),
-    wwwhisper = require('connect-wwwhisper');
 
     path          = require("path"),
     Memory = require("./models/memory"),
@@ -33,7 +32,6 @@ app.use(methodOverride("_method"));
 app.use(flash());
 //seedDB();
 app.use(expressSanitizer());
-app.use(wwwhisper());
 
 app.locals.moment = require('moment');
 // PASSPORT CONFIGURATION
