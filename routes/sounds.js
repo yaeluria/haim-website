@@ -51,7 +51,7 @@ router.post("/", function (req, res) {
     function convertYoutube(input) {
         var pattern = /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(\S+)/g;
         if (pattern.test(input)) {
-        var replacement = 'http://www.youtube.com/embed/$1';
+        var replacement = 'https://www.youtube.com/embed/$1';
         var input = input.replace(pattern, replacement);
         // For start time, turn get param & into ?
         var input = input.replace('&amp;t=', '?t=');
