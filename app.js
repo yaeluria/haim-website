@@ -22,7 +22,7 @@ var commentRoutes    = require("./routes/comments"),
     soundRoutes   = require("./routes/sounds")
     
 mongoose.Promise = require('bluebird');
-mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/haim_app", { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/haim_app", { useNewUrlParser: true, useFindAndModify: false });
 require('dotenv').config()
 
 app.use(bodyParser.urlencoded({extended: true}));
