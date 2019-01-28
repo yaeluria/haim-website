@@ -195,6 +195,7 @@ min-height: calc(100vh - 95px);
 footer{
   /* padding: 20px 0px 20px 800px; */
   background-color: #f5f6f7;
+  font-size: 15px;
   color:black;
   position: default;
   bottom: 0;
