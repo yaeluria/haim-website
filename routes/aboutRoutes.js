@@ -4,7 +4,6 @@ var Memory = require("../models/memory");
 
 
 var Comment = require("../models/comment");
-//var About = new Memory({category: "about"});
 
 router.get("/", function(req,res,next){
     var query = {category:"about"},

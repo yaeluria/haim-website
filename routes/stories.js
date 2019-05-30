@@ -33,6 +33,11 @@ router.post("/", middleware.upload.single('image'), function (req, res) {
 
                 console.log("newlyCreated");
                 console.log(newlyCreated);
+                //send myself an email
+                middleware.send({ 
+                  }, function (err, res) {
+                    console.log('* from gmail-send() callback returned: err:', err, '; res:', res);
+                  });
                 //redirect back to stories page
                 // console.log(newlyCreated);
                 res.redirect("/stories");
