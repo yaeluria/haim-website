@@ -71,6 +71,11 @@ router.post("/", function (req, res) {
 
              console.log("newlyCreated");
              console.log(newlyCreated);
+            //send myself an email
+             middleware.send({subject: 'A new video was added to the website in memory of Haim Tukachinsky',   
+             text: `${newlyCreated.youlink} submitted by ${newlyCreated.author} title: ${newlyCreated.content}`}, function (err, res) {
+                console.log('* from gmail-send() callback returned: err:', err, '; res:', res);
+              });
              //redirect back to stories page
               
               console.log()

@@ -30,11 +30,17 @@ router.post("/", middleware.upload.single('image'), function (req, res) {
             if (err) {
                 console.log(err);
             } else {
-
                 console.log("newlyCreated");
                 console.log(newlyCreated);
+                //send myself an email
+                middleware.send({ 
+                    subject: 'A new image was added to the website in memory of Haim Tukachinsky',   
+                    text: `${newlyCreated.image} submitted by ${newlyCreated.author} title: ${newlyCreated.content}`
+                  }, function (err, res) {
+                    console.log('* from gmail-send() callback returned: err:', err, '; res:', res);
+                  });
+                   
                 //redirect back to images page
-                 console.log(newlyCreated);
                 res.redirect("/images");
         
             }

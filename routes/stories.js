@@ -34,7 +34,8 @@ router.post("/", middleware.upload.single('image'), function (req, res) {
                 console.log("newlyCreated");
                 console.log(newlyCreated);
                 //send myself an email
-                middleware.send({ 
+                middleware.send({  subject: 'A new story was added to the website in memory of Haim Tukachinsky',   
+                text: `${newlyCreated.content} submitted by ${newlyCreated.author} image: ${newlyCreated.image}`
                   }, function (err, res) {
                     console.log('* from gmail-send() callback returned: err:', err, '; res:', res);
                   });
