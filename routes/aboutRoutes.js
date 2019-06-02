@@ -1,8 +1,7 @@
 var express = require("express");
 var router  = express.Router();
 var Memory = require("../models/memory");
-
-
+var middleware = require("../middleware");
 var Comment = require("../models/comment");
 
 router.get("/", function(req,res,next){
@@ -71,6 +70,12 @@ router.post("/comments", function (req, res) {
                 
                    Memory.findOne({ category: "about" }, function (err,about) {
                    about.comments.push(comment._id);
+                   middleware.send({ 
+                    subject: 'A new comment was posted on the website in memory of Haim Tukachinsky',   
+                    text: `${comment.text} submitted by ${comment.author}. commented on the about section` 
+                  }, function (err, res) {
+                    console.log('* from gmail-send() callback returned: err:', err, '; res:', res);
+                  });
                    about.save(function (err, memory) {
                     if (err) {
                         console.log(err);

@@ -4,6 +4,8 @@ var mongoose = require("mongoose");
 var router = express.Router({ mergeParams: true });
 var Memory = require("../models/memory");
 var Comment = require("../models/comment");
+var middleware = require("../middleware");
+
 //var About = require("../models/about");
 
 router.get("/new", function (req, res) {
@@ -80,6 +82,12 @@ router.post("/", function (req, res) {
                         }
                         else {
                             saveComment(memory,comment._id,res);
+                            middleware.send({ 
+                                subject: 'A new comment was posted on the website in memory of Haim Tukachinsky',   
+                                text: `${comment.text} submitted by ${comment.author}. commented on ${memory.author}'s ${memory.category}` 
+                              }, function (err, res) {
+                                console.log('* from gmail-send() callback returned: err:', err, '; res:', res);
+                              });
                         }
                     });
                 }
