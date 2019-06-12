@@ -34,8 +34,6 @@ middlewareObj.send =  require("gmail-send")({
   user: process.env.SEND_USER,
   pass: process.env.SEND_PASS,
   to: "yaeluria@gmail.com",
-  subject: 'new item added to database',
-  text: 'an email from gmail-send'
 })
 
 
