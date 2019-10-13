@@ -150,6 +150,21 @@ min-height: calc(100vh - 95px);
   
 }
 
+/* .book{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("https://res.cloudinary.com/drvycak8r/image/upload/v1570910596/storage/0001.jpg") ;
+  height: 500px;
+  padding-top: 200px;
+}
+  @media screen and (min-width: 1000px){
+    .book{
+    height: 600px;
+  
+      padding-top: 100px;
+    }
+  } */
+
 
 
 .memory-share{
