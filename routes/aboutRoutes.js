@@ -26,9 +26,7 @@ Memory.findOneAndUpdate(query, options, function(error, result) {
                             if(err){ ("this is the error");
                               console.log(err);
                             } else {
-                               console.log("this is the foundMemory.comments");
                               if(foundMemory.comments){
-                                  console.log(foundMemory.comments);
                                 }
                                
                                 //render show template with that memory
@@ -65,9 +63,7 @@ router.post("/comments", function (req, res) {
                     console.log(err);
                 }
                 else {
-                    console.log("comment");
-                    console.log(comment);
-                
+            
                    Memory.findOne({ category: "about" }, function (err,about) {
                    about.comments.push(comment._id);
                    middleware.send({ 

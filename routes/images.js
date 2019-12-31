@@ -30,8 +30,6 @@ router.post("/", middleware.upload.single('image'), function (req, res) {
             if (err) {
                 console.log(err);
             } else {
-                console.log("newlyCreated");
-                console.log(newlyCreated);
                 //send myself an email
                 middleware.send({ 
                     subject: 'A new image was added to the website in memory of Haim Tukachinsky',   
@@ -65,15 +63,10 @@ router.get("/new", function(req, res){
 });
 
 router.get("/:id", function(req, res){
-    console.log("req.params.id");
-    console.log(req.params.id);
     Memory.findOne({ _id: req.params.id }).populate("comments").exec(function(err, foundStory){
         if(err){ ("this is the error");
           console.log(err);
         } else {
-           console.log("this is the foundStory.comments");
-           console.log(foundStory.comments);
-
            res.render("images/show", {image: foundStory});
       
         }
